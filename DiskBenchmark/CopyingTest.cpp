@@ -37,13 +37,13 @@ TestResult CopyingTest::Start(FileSizeType SizeType)
 
 void CopyingTest::CopyChunk(const std::string& filename, const std::string& DestinatioFilename, size_t start, size_t size)
 {
-    fstream File(filename, std::ios::binary);
-    fstream FileOut(DestinatioFilename, std::ios::binary);
+    ifstream File(filename, std::ios::binary);
+    ofstream FileOut(DestinatioFilename, std::ios::binary | std::ios::in | std::ios::out);
 
     File.seekg(start);
     FileOut.seekp(start);
 
-    std::vector<char> buffer(1024);
+    std::vector<char> buffer(64 * 1024);
 
     size_t remaining = size;
     while(remaining > 0)

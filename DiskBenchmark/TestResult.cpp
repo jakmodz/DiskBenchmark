@@ -38,11 +38,11 @@ long long GetFileSize(FileSizeType SizeType)
 		break;
 	case Medium:
 	{
-		return 100 * 1024 * 1024;
+		return 10 * 1024 * 1024;
 	}
 		break;
 	case Big:
-		return 1000 * 1024 * 1024;
+		return 100 * 1024 * 1024;
 		break;
 	}
 }
